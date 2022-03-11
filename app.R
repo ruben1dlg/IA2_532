@@ -27,7 +27,8 @@ app$callback(
     list(input('sport-select', 'value')),
     function(sport_sel) {
         df_filtered <- df %>%
-            filter(sport == sport_sel)
+            filter(sport == sport_sel) %>%
+            filter(year >= 1990)
         p <- ggplot(df_filtered, aes(x = height)) +
             geom_histogram() +
             scale_x_log10() +
